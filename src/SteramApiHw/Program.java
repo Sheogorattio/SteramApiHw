@@ -33,9 +33,15 @@ public class Program {
 		String addressLine =  "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
 		var gson = new Gson();
 		List<Currency> currencyRates = gson.fromJson(fetchCurrencies(addressLine), new TypeToken<List<Currency>>(){}.getType());
+		//StreamAPI
+		//| | | | |
+		//V V V V V 
 		currencyRates.stream().filter(n-> n.getRate()>30).forEach(n-> System.out.println(n.getCode() + " - " 
 																						+ n.getName() + " "
 																						+ n.getRate()));
+		//Ʌ Ʌ Ʌ Ʌ Ʌ
+		//| | | | |
+		//StreamAPI
 	}
 	
 	public static String fetchCurrencies(String connectionString){
